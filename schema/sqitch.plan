@@ -3,3 +3,4 @@
 %uri=https://github.com/button-inc/button-onboarding
 
 appschema 2022-02-16T19:22:13Z Gurjeet Matharu <gurjeet@matharuco.com> # Add schema for all todo_app objects.
+tasks [appschema] 2022-02-16T20:54:25Z Gurjeet Matharu <gurjeet@matharuco.com> # Creates table to track tasks.
