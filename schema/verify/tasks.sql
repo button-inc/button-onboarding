@@ -4,7 +4,7 @@ BEGIN;
 
 DO $$
     BEGIN
-        ASSERT (SELECT has_table_privilege('tasks', 'SELECT'));
+        ASSERT (SELECT has_table_privilege('todo_app.tasks', 'SELECT'));
     END $$;
 
 ROLLBACK;

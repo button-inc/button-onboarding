@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE tasks (
+CREATE TABLE todo_app.tasks (
     id  bigint unique,
     task varchar(50),
     completed bool,
