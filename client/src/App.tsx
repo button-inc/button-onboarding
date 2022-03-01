@@ -14,12 +14,14 @@ const { Suspense } = React;
 const AppAllTodosQuery = graphql`
 query AppQuery {
   allTodos {
-    nodes {
-      id,
-      task,
-      completed,
-      dateCreated,
-      dateUpdated
+    edges {
+      node {
+        completed
+        dateCreated
+        dateUpdated
+        id
+        task
+      }
     }
   }
 }
