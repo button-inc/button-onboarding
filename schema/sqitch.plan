@@ -2,3 +2,4 @@
 %project=todo_app
 %uri=pg:onboarding_todo
 
+todo_appschema 2022-03-09T21:26:20Z Mike Vesprini <mike@button.is> # Add schema for all todo objects
