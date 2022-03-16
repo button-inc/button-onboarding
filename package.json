@@ -1,0 +1,24 @@
+{
+  "name": "button-onboarding",
+  "version": "1.0.0",
+  "description": "A guide to help developers onboard to the Button stack by building a simple todo app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikevespi/button-onboarding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikevespi/button-onboarding/issues"
+  },
+  "homepage": "https://github.com/mikevespi/button-onboarding#readme",
+  "dependencies": {
+    "graphql-compiler": "^1.7.0",
+    "postgraphile": "^4.12.9",
+    "relay-compiler-language-typescript": "^15.0.1"
+  }
+}

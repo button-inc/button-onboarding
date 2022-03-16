@@ -1,0 +1,6 @@
+%syntax-version=1.0.0
+%project=todo_app
+%uri=pg:onboarding_todo
+
+todo_appschema 2022-03-09T21:26:20Z Mike Vesprini <mike@button.is> # Add schema for all todo objects
+todos [todo_appschema] 2022-03-09T21:48:39Z Mike Vesprini <mike@button.is> # Creates a table to track todos
