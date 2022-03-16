@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/mikevespi/button-onboarding#readme",
   "dependencies": {
-    "postgraphile": "^4.12.9"
+    "graphql-compiler": "^1.7.0",
+    "postgraphile": "^4.12.9",
+    "relay-compiler-language-typescript": "^15.0.1"
   }
 }
