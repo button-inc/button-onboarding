@@ -30,13 +30,14 @@ function TodoList(props: Props) {
     props.query,
   );
 
-    const listItems = data.allTodos.edges.map(todo => 
-      <TodoListItem
-          key={todo.node.id}
-          todo={todo.node}
-      />
+  const listItems = data.allTodos.edges.map(todo =>
+    <TodoListItem
+      key={todo.node.id}
+      todo={todo.node}
+    />
   )
-  return (<div className="list">{listItems}</div>
+  return (
+    <div className="todo-list">{listItems}</div>
   )
   
   }

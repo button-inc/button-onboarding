@@ -11,21 +11,21 @@ type Props = {
 }
 
 function TodoListItem(props: Props) {
-    console.log('props in todolistitem',props)
-    const data = useFragment(
-        graphql`
-          fragment TodoListItem_todo on Todo {
-            id
-            task
-            completed
-          }
-        `,
-        props.todo,
-      );
+  console.log('props in todolistitem', props)
+  const data = useFragment(
+    graphql`
+      fragment TodoListItem_todo on Todo {
+        id
+        task
+        completed
+      }
+    `,
+    props.todo,
+  );
 
-      return (
-          <Checkbox label={data.task} checkmark={data.completed}/>
-      )
+  return (
+    <Checkbox className="checkbox" defaultChecked={data.completed} label={data.task}/>
+  )
 
 
 }
