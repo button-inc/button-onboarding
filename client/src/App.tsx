@@ -38,18 +38,18 @@ function App(props) {
 
 function AppRoot(props) {
   const component =
-  typeof window !== "undefined" ? (
-    <Suspense fallback="loading">
+    typeof window !== "undefined" ? (
+      <Suspense fallback="loading">
+        <App preloadedQuery={preloadedQuery} />
+      </Suspense>
+    ) : (
       <App preloadedQuery={preloadedQuery} />
-    </Suspense>
-  ) : (
-    <App preloadedQuery={preloadedQuery} />
+    );
+  return (
+    <RelayEnvironmentProvider environment={RelayEnvironment}>
+      {component}
+    </RelayEnvironmentProvider>
   );
-return (
-  <RelayEnvironmentProvider environment={RelayEnvironment}>
-    {component}
-  </RelayEnvironmentProvider>
-);
 }
 
 export default AppRoot;
