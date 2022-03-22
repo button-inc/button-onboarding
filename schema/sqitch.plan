@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=todo
+
+todo_schema 2022-03-17T03:23:52Z Mike Vesprini <mike@button.is> # Add schema for all todo items
+todos [todo_schema] 2022-03-17T03:36:19Z Mike Vesprini <mike@button.is> # Creates a table to track todo items

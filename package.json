@@ -1,0 +1,17 @@
+{
+  "name": "onboarding_todo",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx postgraphile --cors -c postgres:///todo_app -s todo --export-schema-graphql ./schema/schema.graphql --enhance-graphiql --classic-ids --watch",
+    "generate-schema": "npx postgraphile -c postgres:///todo_app -s todo --no-server --export-schema-graphql ./schema/schema.graphql --export-schema-json ./schema/schema.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikevespi/button-onboarding.git"
+  },
+  "dependencies": {
+    "postgraphile": "^4.12.9"
+  }
+}
