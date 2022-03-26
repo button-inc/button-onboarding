@@ -1,0 +1,26 @@
+{
+  "name": "button-onboarding",
+  "version": "1.0.0",
+  "description": "A guide to help developers onboard to the Button stack by building a simple todo app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "npx postgraphile -c postgres://marcel:marcel@localhost:5432/todo_app -s todo_app --watch --enhance-graphiql",
+    "deploy": "cd ./db/schema && sqitch deploy",
+    "verify": "cd ./db/schema && sqitch verify",
+    "revert": "cd ./db/schema && sqitch revert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcellmueller/button-onboarding.git"
+  },
+  "author": "Marcel Mueller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcellmueller/button-onboarding/issues"
+  },
+  "homepage": "https://github.com/marcellmueller/button-onboarding#readme",
+  "dependencies": {
+    "postgraphile": "^4.12.9"
+  }
+}
