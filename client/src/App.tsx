@@ -1,16 +1,14 @@
 import { Suspense } from 'react';
-
 import { relayEnvironment } from './lib';
-import './App.css';
 import { graphql } from 'babel-plugin-relay/macro';
-import './App.css';
-
 import {
   RelayEnvironmentProvider,
   loadQuery,
   usePreloadedQuery,
 } from 'react-relay/hooks';
+
 import { TodoList } from './components';
+import './styles/App.css';
 
 interface AppProps {
   preloadedQuery: any;
@@ -38,9 +36,7 @@ function App({ preloadedQuery }: AppProps) {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <TodoList />
-      </header>
+      <TodoList />
     </div>
   );
 }

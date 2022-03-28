@@ -30,9 +30,6 @@
   "relay": {
     "src": "./src/",
     "schema": "./src/schema/schema.graphql",
-    "schemaConfig": {
-      "nodeInterfaceIdField": "nodeId"
-    },
     "language": "typescript"
   },
   "eslintConfig": {
