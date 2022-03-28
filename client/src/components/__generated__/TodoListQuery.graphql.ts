@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f2ce0ea4caae2ec7c30e37cf3c94f42b>>
+ * @generated SignedSource<<ddfea25a2e977d16d8b5493d35e4c26f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,12 +9,12 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
-export type AppQuery$variables = {};
-export type AppQuery$data = {
+export type TodoListQuery$variables = {};
+export type TodoListQuery$data = {
   readonly allTasks: {
     readonly edges: ReadonlyArray<{
       readonly node: {
-        readonly rowId: number;
+        readonly id: number;
         readonly completed: boolean;
         readonly dateCreated: any;
         readonly dateUpdated: any;
@@ -23,9 +23,9 @@ export type AppQuery$data = {
     }>;
   } | null;
 };
-export type AppQuery = {
-  variables: AppQuery$variables;
-  response: AppQuery$data;
+export type TodoListQuery = {
+  variables: TodoListQuery$variables;
+  response: TodoListQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
@@ -40,7 +40,7 @@ v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "rowId",
+  "name": "id",
   "storageKey": null
 },
 v2 = {
@@ -76,7 +76,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "AppQuery",
+    "name": "TodoListQuery",
     "selections": [
       {
         "alias": null,
@@ -124,7 +124,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "AppQuery",
+    "name": "TodoListQuery",
     "selections": [
       {
         "alias": null,
@@ -159,7 +159,7 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "id",
+                    "name": "nodeId",
                     "storageKey": null
                   }
                 ],
@@ -174,16 +174,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "25fcfb4168630951d277ae15ee8aa048",
+    "cacheID": "01a60777dd1531a43a97649eea119ee5",
     "id": null,
     "metadata": {},
-    "name": "AppQuery",
+    "name": "TodoListQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  allTasks(orderBy: NATURAL) {\n    edges {\n      node {\n        rowId\n        completed\n        dateCreated\n        dateUpdated\n        task\n        id\n      }\n    }\n  }\n}\n"
+    "text": "query TodoListQuery {\n  allTasks(orderBy: NATURAL) {\n    edges {\n      node {\n        id\n        completed\n        dateCreated\n        dateUpdated\n        task\n        nodeId\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "4ecc674092da344a40f5f1057f521bbb";
+(node as any).hash = "8cc34f6b86c6ac95db1a071550eee045";
 
 export default node;
