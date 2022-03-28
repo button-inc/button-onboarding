@@ -36,7 +36,7 @@ function App({ preloadedQuery }: AppProps) {
 
   return (
     <div className="App">
-      <TodoList />
+      <TodoList initialListItems={data} />
     </div>
   );
 }
