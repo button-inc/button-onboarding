@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "npx postgraphile -c postgres://marcel:marcel@localhost:5432/todo_app -s todo_app --watch --enhance-graphiql",
+    "api": "npx postgraphile -c postgres://marcel:marcel@localhost:5432/todo_app -s todo_app --watch --enhance-graphiql --classic-ids",
     "deploy": "cd ./db/schema && sqitch deploy",
     "verify": "cd ./db/schema && sqitch verify",
     "revert": "cd ./db/schema && sqitch revert"

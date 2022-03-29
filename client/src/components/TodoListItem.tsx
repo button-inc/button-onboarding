@@ -13,6 +13,7 @@ interface ListItemProps {
 const styles = {
   display: 'flex',
   alignItems: 'center',
+  listStyleType: 'none',
 };
 
 const TodoListItem = ({ listItem }: ListItemProps) => {

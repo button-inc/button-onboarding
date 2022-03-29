@@ -13,12 +13,18 @@ interface ListItem {
   dateUpdated: string;
 }
 
+const styles = {
+  boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.5)',
+  padding: '0 2em',
+  height: 'fit-content',
+};
+
 const TodoList = ({ initialListItems }: TodoListProps) => {
   const listItems = unwrap(initialListItems.allTasks.edges);
 
   return (
-    <div>
-      <ul>
+    <div style={styles}>
+      <ul style={{ padding: 0 }}>
         {listItems &&
           listItems.map((listItem: ListItem) => {
             const { id } = listItem;
