@@ -1,4 +1,5 @@
 import { unwrap } from '../utils';
+import TodoListItem from './TodoListItem';
 
 interface TodoListProps {
   initialListItems: any;
@@ -9,7 +10,7 @@ interface ListItem {
   task: string;
   completed: boolean;
   dateCreated: string;
-  dateCompleted: string;
+  dateUpdated: string;
 }
 
 const TodoList = ({ initialListItems }: TodoListProps) => {
@@ -19,9 +20,9 @@ const TodoList = ({ initialListItems }: TodoListProps) => {
     <div>
       <ul>
         {listItems &&
-          listItems.map((item: ListItem) => {
-            const { id, task } = item;
-            return <li key={id}>{task}</li>;
+          listItems.map((listItem: ListItem) => {
+            const { id } = listItem;
+            return <TodoListItem key={id} listItem={listItem} />;
           })}
       </ul>
     </div>
