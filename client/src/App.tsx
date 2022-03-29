@@ -16,17 +16,7 @@ interface AppProps {
 
 const query = graphql`
   query AppQuery {
-    allTasks(orderBy: NATURAL) {
-      edges {
-        node {
-          rowId
-          completed
-          dateCreated
-          dateUpdated
-          task
-        }
-      }
-    }
+    ...TodoList_query
   }
 `;
 const preloadedQuery = loadQuery(relayEnvironment, query, {});
@@ -36,7 +26,7 @@ function App({ preloadedQuery }: AppProps) {
 
   return (
     <div className="App">
-      <TodoList initialListItems={data} />
+      <TodoList query={data} />
     </div>
   );
 }

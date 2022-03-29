@@ -1,8 +1,10 @@
+import { useFragment } from 'react-relay';
+import { graphql } from 'babel-plugin-relay/macro';
 import { unwrap } from '../utils';
 import TodoListItem from './TodoListItem';
 
 interface TodoListProps {
-  initialListItems: any;
+  query: any;
 }
 
 interface ListItem {
@@ -19,16 +21,32 @@ const styles = {
   height: 'fit-content',
 };
 
-const TodoList = ({ initialListItems }: TodoListProps) => {
-  const listItems = unwrap(initialListItems.allTasks.edges);
+const TodoList = ({ query }: TodoListProps) => {
+  const data = useFragment(
+    graphql`
+      fragment TodoList_query on Query {
+        allTasks {
+          edges {
+            node {
+              id
+              ...TodoListItem_task
+            }
+          }
+        }
+      }
+    `,
+    query
+  );
+
+  const tasks = unwrap(data.allTasks.edges);
 
   return (
     <div style={styles}>
       <ul style={{ padding: 0 }}>
-        {listItems &&
-          listItems.map((listItem: ListItem) => {
-            const { id } = listItem;
-            return <TodoListItem key={id} listItem={listItem} />;
+        {tasks &&
+          tasks.map((node: ListItem) => {
+            const { id } = node;
+            return <TodoListItem key={id} task={node} />;
           })}
       </ul>
     </div>

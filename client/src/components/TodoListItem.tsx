@@ -1,13 +1,9 @@
 import Checkbox from '@button-inc/button-theme/Checkbox';
+import { useFragment } from 'react-relay';
+import { graphql } from 'babel-plugin-relay/macro';
 
-interface ListItemProps {
-  listItem: {
-    id: number;
-    task: string;
-    completed: boolean;
-    dateCreated: string;
-    dateUpdated: string;
-  };
+interface Props {
+  task: any;
 }
 
 const styles = {
@@ -16,12 +12,22 @@ const styles = {
   listStyleType: 'none',
 };
 
-const TodoListItem = ({ listItem }: ListItemProps) => {
-  const { id, completed, dateCreated, dateUpdated, task } = listItem;
+const TodoListItem = ({ task }: Props) => {
+  const data = useFragment(
+    graphql`
+      fragment TodoListItem_task on Task {
+        completed
+        task
+        dateCreated
+      }
+    `,
+    task
+  );
+
   return (
     <li style={styles}>
-      <Checkbox checked={completed} />
-      <h3>{task}</h3>
+      <Checkbox checked={data.completed} />
+      <h3>{data.task}</h3>
     </li>
   );
 };
