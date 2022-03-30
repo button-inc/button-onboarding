@@ -1,6 +1,7 @@
 import { useFragment } from 'react-relay';
 import { graphql } from 'babel-plugin-relay/macro';
 import { unwrap } from '../utils';
+import AddTodo from './AddTodo';
 import TodoListItem from './TodoListItem';
 
 interface TodoListProps {
@@ -17,7 +18,7 @@ interface ListItem {
 
 const styles = {
   boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.5)',
-  padding: '0 2em',
+  padding: '0 2em 2em 2em',
   height: 'fit-content',
 };
 
@@ -49,6 +50,7 @@ const TodoList = ({ query }: TodoListProps) => {
             return <TodoListItem key={id} task={node} />;
           })}
       </ul>
+      <AddTodo />
     </div>
   );
 };
