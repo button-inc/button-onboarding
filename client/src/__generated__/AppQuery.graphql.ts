@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7bb55acbc1e60068fa0960c0595642f9>>
+ * @generated SignedSource<<a10c1f81d323f83390f8a2f0d6cd8c50>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -76,6 +76,13 @@ const node: ConcreteRequest = {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "rowId",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "completed",
                     "storageKey": null
                   },
@@ -84,13 +91,6 @@ const node: ConcreteRequest = {
                     "args": null,
                     "kind": "ScalarField",
                     "name": "task",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "dateCreated",
                     "storageKey": null
                   }
                 ],
@@ -105,12 +105,12 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
-    "cacheID": "bfa13ad2082b859c3af0fce224bdc294",
+    "cacheID": "85d904c0b1bb2ead037b552ae1b94f58",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_task on Task {\n  completed\n  task\n  dateCreated\n}\n\nfragment TodoList_query on Query {\n  allTasks {\n    edges {\n      node {\n        id\n        ...TodoListItem_task\n      }\n    }\n  }\n}\n"
+    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_task on Task {\n  rowId\n  completed\n  task\n}\n\nfragment TodoList_query on Query {\n  allTasks {\n    edges {\n      node {\n        id\n        ...TodoListItem_task\n      }\n    }\n  }\n}\n"
   }
 };
 
