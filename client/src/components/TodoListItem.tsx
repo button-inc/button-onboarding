@@ -21,6 +21,7 @@ const TodoListItem = ({ task }: Props) => {
   const data = useFragment(
     graphql`
       fragment TodoListItem_task on Task {
+        __id
         rowId
         completed
         task
@@ -36,9 +37,9 @@ const TodoListItem = ({ task }: Props) => {
   };
 
   const handleDeleteTaskClick = () => {
-    DeleteTaskMutation(data.rowId, () =>
-      console.log('Delete task mutation successful')
-    );
+    DeleteTaskMutation(data.rowId, data.__id, () => {
+      console.log('Delete task mutation successful');
+    });
   };
 
   return (

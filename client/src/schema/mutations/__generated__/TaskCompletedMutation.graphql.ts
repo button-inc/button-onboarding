@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<de94e86259372a1578172e826687e2d5>>
+ * @generated SignedSource<<40e3c3265e5a920d31b06a1f595d588a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -26,9 +26,11 @@ export type TaskCompletedMutation$variables = {
 };
 export type TaskCompletedMutation$data = {
   readonly updateTaskByRowId: {
-    readonly task: {
-      readonly id: string;
-      readonly completed: boolean;
+    readonly taskEdge: {
+      readonly node: {
+        readonly completed: boolean;
+        readonly id: string;
+      } | null;
     } | null;
   } | null;
 };
@@ -63,23 +65,34 @@ v1 = [
       {
         "alias": null,
         "args": null,
-        "concreteType": "Task",
+        "concreteType": "TasksEdge",
         "kind": "LinkedField",
-        "name": "task",
+        "name": "taskEdge",
         "plural": false,
         "selections": [
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "completed",
+            "concreteType": "Task",
+            "kind": "LinkedField",
+            "name": "node",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "completed",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           }
         ],
@@ -107,16 +120,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "564a9d4c9737d8d1dfab408a04ee98bb",
+    "cacheID": "aeacfd850875983feb07f9d1ccededf7",
     "id": null,
     "metadata": {},
     "name": "TaskCompletedMutation",
     "operationKind": "mutation",
-    "text": "mutation TaskCompletedMutation(\n  $input: UpdateTaskByRowIdInput!\n) {\n  updateTaskByRowId(input: $input) {\n    task {\n      id\n      completed\n    }\n  }\n}\n"
+    "text": "mutation TaskCompletedMutation(\n  $input: UpdateTaskByRowIdInput!\n) {\n  updateTaskByRowId(input: $input) {\n    taskEdge {\n      node {\n        completed\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "0cc61442c7ece838b5b1db03a1be283f";
+(node as any).hash = "b6955f40b85a2bd33b000a3058b2eb86";
 
 export default node;

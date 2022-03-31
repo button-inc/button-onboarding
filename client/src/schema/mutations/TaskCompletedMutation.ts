@@ -5,9 +5,11 @@ import { graphql } from 'babel-plugin-relay/macro';
 const mutation = graphql`
   mutation TaskCompletedMutation($input: UpdateTaskByRowIdInput!) {
     updateTaskByRowId(input: $input) {
-      task {
-        id
-        completed
+      taskEdge {
+        node {
+          completed
+          id
+        }
       }
     }
   }

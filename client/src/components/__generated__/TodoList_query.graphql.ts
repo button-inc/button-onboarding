@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1c6b761d27f96bda0c5e2510abf4d47a>>
+ * @generated SignedSource<<445b052ed9226c53a59bc137f7968524>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,6 +12,7 @@ import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type TodoList_query$data = {
   readonly allTasks: {
+    readonly __id: string;
     readonly edges: ReadonlyArray<{
       readonly node: {
         readonly id: string;
@@ -29,15 +30,26 @@ export type TodoList_query$key = {
 const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "allTasks"
+        ]
+      }
+    ]
+  },
   "name": "TodoList_query",
   "selections": [
     {
-      "alias": null,
+      "alias": "allTasks",
       "args": null,
       "concreteType": "TasksConnection",
       "kind": "LinkedField",
-      "name": "allTasks",
+      "name": "__TodoList_allTasks_connection",
       "plural": false,
       "selections": [
         {
@@ -67,12 +79,63 @@ const node: ReaderFragment = {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "TodoListItem_task"
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
               "storageKey": null
             }
           ],
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "kind": "ClientExtension",
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "__id",
+              "storageKey": null
+            }
+          ]
         }
       ],
       "storageKey": null
@@ -82,6 +145,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "c14bcc978ebd82c3bd29b37593b47840";
+(node as any).hash = "012a0e4c1efbfc1fdb8d95b7796efaa2";
 
 export default node;

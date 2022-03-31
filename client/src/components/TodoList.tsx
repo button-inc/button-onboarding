@@ -26,7 +26,8 @@ const TodoList = ({ query }: TodoListProps) => {
   const data = useFragment(
     graphql`
       fragment TodoList_query on Query {
-        allTasks {
+        allTasks(first: 100) @connection(key: "TodoList_allTasks") {
+          __id
           edges {
             node {
               id

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<48a4e3f871afa062edf19b45537b2b45>>
+ * @generated SignedSource<<f787d5f4dead1b94ce9ce18b902a0087>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,6 @@ export type DeleteTaskMutation$variables = {
 export type DeleteTaskMutation$data = {
   readonly deleteTaskByRowId: {
     readonly clientMutationId: string | null;
-    readonly deletedTaskId: string | null;
   } | null;
 };
 export type DeleteTaskMutation = {
@@ -56,13 +55,6 @@ v1 = [
         "kind": "ScalarField",
         "name": "clientMutationId",
         "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "deletedTaskId",
-        "storageKey": null
       }
     ],
     "storageKey": null
@@ -86,16 +78,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "f423aed728d86bdf14da3b71c7d2ba23",
+    "cacheID": "229635163acd1c36bd18e10c13b9e35c",
     "id": null,
     "metadata": {},
     "name": "DeleteTaskMutation",
     "operationKind": "mutation",
-    "text": "mutation DeleteTaskMutation(\n  $input: DeleteTaskByRowIdInput!\n) {\n  deleteTaskByRowId(input: $input) {\n    clientMutationId\n    deletedTaskId\n  }\n}\n"
+    "text": "mutation DeleteTaskMutation(\n  $input: DeleteTaskByRowIdInput!\n) {\n  deleteTaskByRowId(input: $input) {\n    clientMutationId\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "fd4b23781aec1b7bb7c283ab719a237c";
+(node as any).hash = "b2180166f39e35a8b49d84c88f580e1b";
 
 export default node;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a10c1f81d323f83390f8a2f0d6cd8c50>>
+ * @generated SignedSource<<a78ada0167fc30d975b0ce6b6b5a7e7b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,27 @@ export type AppQuery = {
   response: AppQuery$data;
 };
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
+v1 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -43,7 +63,7 @@ const node: ConcreteRequest = {
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v0/*: any*/),
         "concreteType": "TasksConnection",
         "kind": "LinkedField",
         "name": "allTasks",
@@ -92,27 +112,78 @@ const node: ConcreteRequest = {
                     "kind": "ScalarField",
                     "name": "task",
                     "storageKey": null
+                  },
+                  (v1/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "__typename",
+                    "storageKey": null
                   }
                 ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "cursor",
                 "storageKey": null
               }
             ],
             "storageKey": null
-          }
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "PageInfo",
+            "kind": "LinkedField",
+            "name": "pageInfo",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "endCursor",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "hasNextPage",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v1/*: any*/)
         ],
-        "storageKey": null
+        "storageKey": "allTasks(first:100)"
+      },
+      {
+        "alias": null,
+        "args": (v0/*: any*/),
+        "filters": null,
+        "handle": "connection",
+        "key": "TodoList_allTasks",
+        "kind": "LinkedHandle",
+        "name": "allTasks"
       }
     ]
   },
   "params": {
-    "cacheID": "85d904c0b1bb2ead037b552ae1b94f58",
+    "cacheID": "c7f210d8d3e214e828ccf75c64590fdb",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_task on Task {\n  rowId\n  completed\n  task\n}\n\nfragment TodoList_query on Query {\n  allTasks {\n    edges {\n      node {\n        id\n        ...TodoListItem_task\n      }\n    }\n  }\n}\n"
+    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_task on Task {\n  rowId\n  completed\n  task\n}\n\nfragment TodoList_query on Query {\n  allTasks(first: 100) {\n    edges {\n      node {\n        id\n        ...TodoListItem_task\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
+})();
 
 (node as any).hash = "aeea1657bc510763cd22915beaeb3b1b";
 
