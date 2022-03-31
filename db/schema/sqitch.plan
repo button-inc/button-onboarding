@@ -1,0 +1,6 @@
+%syntax-version=1.0.0
+%project=db
+
+todo_app 2022-03-26T15:09:15Z marcel <mlmueller@protonmail.com> # Add schema for todo app
+tasks [todo_app] 2022-03-26T15:38:14Z marcel <mlmueller@protonmail.com> # Creates a table to store our todo tasks
+insert_task [tasks todo_app] 2022-03-26T19:06:02Z marcel <mlmueller@protonmail.com> # Add some dummy data
