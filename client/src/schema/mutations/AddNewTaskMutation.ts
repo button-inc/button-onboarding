@@ -21,7 +21,7 @@ const mutation = graphql`
   }
 `;
 
-export default (task: String, callback: Function) => {
+export default (task: string, callback: Function) => {
   const variables = {
     connections: [connectionId],
     input: { task: { task } },

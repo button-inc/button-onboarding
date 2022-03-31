@@ -15,7 +15,7 @@ const mutation = graphql`
   }
 `;
 
-export default (rowId: number, completed: Boolean, callback: Function) => {
+export default (rowId: number, completed: boolean, callback: Function) => {
   const variables = { input: { taskPatch: { completed }, rowId } };
 
   commitMutation(relayEnvironment, {
