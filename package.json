@@ -1,0 +1,20 @@
+{
+  "name": "button-onboarding",
+  "version": "1.0.0",
+  "description": "A guide to help developers onboard to the Button stack by building a simple todo app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx postgraphile -c todo_app -s todo_app --enhance-graphiql --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sepehr-Sobhani/button-onboarding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sepehr-Sobhani/button-onboarding/issues"
+  },
+  "homepage": "https://github.com/Sepehr-Sobhani/button-onboarding#readme"
+}
