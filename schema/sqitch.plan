@@ -4,3 +4,4 @@
 
 todo_appschema 2022-04-06T21:11:50Z Sepehr Sobhani <sobhani.sepehr@gmail.com> # Add Schema for all todo app objects.
 tasks [todo_appschema] 2022-04-07T18:34:52Z Sepehr Sobhani <sobhani.sepehr@gmail.com> # Creates table to track tasks.
+insert_seed_task [tasks todo_appschema] 2022-04-07T20:37:04Z Sepehr Sobhani <sobhani.sepehr@gmail.com> # Create seed data for tasks table
