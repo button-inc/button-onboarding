@@ -4,7 +4,7 @@
   "description": "A guide to help developers onboard to the Button stack by building a simple todo app.",
   "main": "index.js",
   "scripts": {
-    "start": "npx postgraphile -c todo_app -s todo_app --enhance-graphiql --watch",
+    "start": "npx postgraphile -c todo_app -s todo_app --enhance-graphiql --watch --classic-ids",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
