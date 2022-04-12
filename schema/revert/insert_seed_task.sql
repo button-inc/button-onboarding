@@ -1,7 +1,7 @@
 -- Revert todo_app:insert_seed_task from pg
 
-BEGIN;
+begin;
 
-TRUNCATE TABLE todo_app.tasks ;
+truncate table todo_app.tasks ;
 
-COMMIT;
+commit;

@@ -2,11 +2,11 @@
 -- requires: tasks
 -- requires: todo_appschema
 
-BEGIN;
+begin;
 
-INSERT INTO
+insert into
     todo_app.tasks (task, completed)
-VALUES
+values
     ('Buy milk', false),
     ('Buy eggs', false),
     ('Buy bread', true),
@@ -14,4 +14,4 @@ VALUES
     ('Buy tea', true),
     ('Buy chocolate', false);
 
-COMMIT;
+commit;

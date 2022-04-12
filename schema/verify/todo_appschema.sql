@@ -1,11 +1,11 @@
 -- Verify todo_app:todo_appschema on pg
 
-BEGIN;
+begin;
 
-DO $$
-BEGIN
-    ASSERT(SELECT pg_catalog.has_schema_privilege('todo_app', 'usage'));
-END $$;
+do $$
+begin
+    assert(select pg_catalog.has_schema_privilege('todo_app', 'usage'));
+end $$;
 
 
-ROLLBACK;
+rollback;

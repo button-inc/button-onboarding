@@ -1,7 +1,7 @@
 -- Verify todo_app:tasks on pg
 
-BEGIN;
+begin;
 
-SELECT id, task, completed, date_created, date_updated FROM todo_app.tasks WHERE FALSE;
+select id, task, completed, date_created, date_updated from todo_app.tasks where false;
 
-ROLLBACK;
+rollback;

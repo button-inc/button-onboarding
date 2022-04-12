@@ -1,7 +1,7 @@
 -- Revert todo_app:tasks from pg
 
-BEGIN;
+begin;
 
-DROP TABLE IF EXISTS todo_app.tasks;
+drop table if exists todo_app.tasks;
 
-COMMIT;
+commit;

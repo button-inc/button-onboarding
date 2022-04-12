@@ -1,7 +1,7 @@
 -- Revert todo_app:todo_appschema from pg
 
-BEGIN;
+begin;
 
-DROP SCHEMA todo_app;
+drop schema todo_app;
 
-COMMIT;
+commit;

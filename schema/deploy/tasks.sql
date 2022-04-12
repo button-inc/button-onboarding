@@ -1,14 +1,14 @@
 -- Deploy todo_app:tasks to pg
 -- requires: todo_appschema
 
-BEGIN;
+begin;
 
-CREATE TABLE todo_app.tasks (
-  id            SERIAL PRIMARY KEY,
-  task          TEXT NOT NULL,
-  completed     BOOLEAN NOT NULL DEFAULT FALSE,
-  date_created  TIMESTAMP NOT NULL DEFAULT NOW(),
-  date_updated  TIMESTAMP NOT NULL DEFAULT NOW()
+create table todo_app.tasks (
+  id            serial primary key,
+  task          text not null,
+  completed     boolean not null default false,
+  date_created  timestamp not null default now(),
+  date_updated  timestamp not null default now()
 );
 
-COMMIT;
+commit;

@@ -1,7 +1,7 @@
 -- Verify todo_app:insert_seed_task on pg
 
-BEGIN;
+begin;
 
-SELECT id, task, completed, date_created, date_updated FROM todo_app.tasks;
+select id, task, completed, date_created, date_updated from todo_app.tasks;
 
-ROLLBACK;
+rollback;

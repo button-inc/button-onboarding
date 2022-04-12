@@ -1,7 +1,7 @@
 -- Deploy todo_app:todo_appschema to pg
 
-BEGIN;
+begin;
 
-CREATE SCHEMA todo_app;
+create schema todo_app;
 
-COMMIT;
+commit;
