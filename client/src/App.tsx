@@ -1,3 +1,4 @@
+import TaskList from "./components/TaskList";
 import React from "react";
 import "./App.css";
 import RelayEnvironment from "./RelayEnvironment";
@@ -8,17 +9,13 @@ const { Suspense } = React;
 // Define a query
 const AllTasksQuery = graphql`
   query AppAllTasksQuery {
-    taskByRowId(rowId: 1) {
-      task
-    }
+    ...TaskList_tasks
   }
 `;
 
 // Immediately load the query as our app starts. For a real app, we'd move this
 // into our routing configuration, preloading data as we transition to new routes.
-const preloadedQuery = loadQuery(RelayEnvironment, AllTasksQuery, {
-  /* query variables */
-});
+const preloadedQuery = loadQuery(RelayEnvironment, AllTasksQuery, {});
 
 // Inner component that reads the preloaded query results via `usePreloadedQuery()`.
 // This works as follows:
@@ -33,9 +30,9 @@ function App(props: any) {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>{data.taskByRowId.task}</p>
-      </header>
+      <section className="todoapp">
+        <TaskList tasks={data} />
+      </section>
     </div>
   );
 }

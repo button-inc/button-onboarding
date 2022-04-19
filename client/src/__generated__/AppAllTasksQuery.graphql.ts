@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0833586a09c7ae9dafb002ef720b51a3>>
+ * @generated SignedSource<<158e155da2bfea1eb15bfc992129c115>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,33 +9,17 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type AppAllTasksQuery$variables = {};
 export type AppAllTasksQuery$data = {
-  readonly taskByRowId: {
-    readonly task: string;
-  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"TaskList_tasks">;
 };
 export type AppAllTasksQuery = {
   variables: AppAllTasksQuery$variables;
   response: AppAllTasksQuery$data;
 };
 
-const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "kind": "Literal",
-    "name": "rowId",
-    "value": 1
-  }
-],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "task",
-  "storageKey": null
-};
-return {
+const node: ConcreteRequest = {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -43,16 +27,9 @@ return {
     "name": "AppAllTasksQuery",
     "selections": [
       {
-        "alias": null,
-        "args": (v0/*: any*/),
-        "concreteType": "Task",
-        "kind": "LinkedField",
-        "name": "taskByRowId",
-        "plural": false,
-        "selections": [
-          (v1/*: any*/)
-        ],
-        "storageKey": "taskByRowId(rowId:1)"
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "TaskList_tasks"
       }
     ],
     "type": "Query",
@@ -66,36 +43,59 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v0/*: any*/),
-        "concreteType": "Task",
+        "args": null,
+        "concreteType": "TasksConnection",
         "kind": "LinkedField",
-        "name": "taskByRowId",
+        "name": "allTasks",
         "plural": false,
         "selections": [
-          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "id",
+            "concreteType": "Task",
+            "kind": "LinkedField",
+            "name": "nodes",
+            "plural": true,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "task",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "completed",
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           }
         ],
-        "storageKey": "taskByRowId(rowId:1)"
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "52d1319efe53c29449f3bb76137e9de2",
+    "cacheID": "13d7c38ae4ed26f033abd9628f21b8f0",
     "id": null,
     "metadata": {},
     "name": "AppAllTasksQuery",
     "operationKind": "query",
-    "text": "query AppAllTasksQuery {\n  taskByRowId(rowId: 1) {\n    task\n    id\n  }\n}\n"
+    "text": "query AppAllTasksQuery {\n  ...TaskList_tasks\n}\n\nfragment TaskListItem_task on Task {\n  id\n  task\n  completed\n}\n\nfragment TaskList_tasks on Query {\n  allTasks {\n    nodes {\n      id\n      ...TaskListItem_task\n    }\n  }\n}\n"
   }
 };
-})();
 
-(node as any).hash = "b31496414c0089233c5322b8f083959d";
+(node as any).hash = "2c8de16ad8c4319c41858a96df5f2976";
 
 export default node;

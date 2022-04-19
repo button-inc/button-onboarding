@@ -1,8 +1,8 @@
-import { Environment, Network, RecordSource, Store } from "relay-runtime";
+import { Environment, Network, RecordSource, Store, Variables, RequestParameters } from "relay-runtime";
 import fetchGraphQL from "./fetchGraphql";
 
-async function fetchRelay(params: any, variables: any) {
-  return fetchGraphQL(params.text, variables);
+async function fetchRelay(params: RequestParameters, variables: Variables) {
+  return fetchGraphQL(params, variables);
 }
 
 // Export a singleton instance of Relay Environment configured with our network function:
