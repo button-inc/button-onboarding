@@ -6,6 +6,7 @@ import { useFragment } from "react-relay/hooks";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Grid } from "@mui/material";
+import AddTask from "./AddTask";
 
 interface Props {
   tasks: any;
@@ -15,10 +16,13 @@ export default function TaskList(props: Props) {
   const data = useFragment(
     graphql`
       fragment TaskList_tasks on Query {
-        allTasks {
-          nodes {
-            id
-            ...TaskListItem_task
+        allTasks(first: 200) @connection(key: "TaskList_allTasks") {
+          __id
+          edges {
+            node {
+              id
+              ...TaskListItem_task
+            }
           }
         }
       }
@@ -26,7 +30,7 @@ export default function TaskList(props: Props) {
     props.tasks
   );
 
-  const tasks = data.allTasks.nodes.map((node) => <TaskListItem task={node} key={node.id} />);
+  const tasks = data.allTasks.edges.map((edge) => <TaskListItem task={edge.node} key={edge.node.id} />);
 
   return (
     <Grid
@@ -37,9 +41,10 @@ export default function TaskList(props: Props) {
       justifyContent="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={3} style={{ boxShadow: "5px 10px grey" }}>
+      <Grid item xs={8} style={{ boxShadow: "5px 10px grey", minWidth: "22rem" }}>
         <Card sx={{ border: 1 }}>
           <CardContent>{tasks}</CardContent>
+          <AddTask connectionId={data.allTasks.__id} />
         </Card>
       </Grid>
     </Grid>
