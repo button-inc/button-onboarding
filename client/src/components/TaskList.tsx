@@ -30,7 +30,7 @@ export default function TaskList(props: Props) {
     props.tasks
   );
 
-  const tasks = data.allTasks.edges.map((edge) => <TaskListItem task={edge.node} key={edge.node.id} />);
+  const tasks = data.allTasks.edges.map((edge) => <TaskListItem connectionId={data.allTasks.__id} task={edge.node} key={edge.node.id} />);
 
   return (
     <Grid

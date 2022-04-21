@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<48a4e3f871afa062edf19b45537b2b45>>
+ * @generated SignedSource<<99e36768dc4e11c1e57ddeb4ae837f0b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,11 +14,11 @@ export type DeleteTaskByRowIdInput = {
   rowId: number;
 };
 export type DeleteTaskMutation$variables = {
+  connections: ReadonlyArray<string>;
   input: DeleteTaskByRowIdInput;
 };
 export type DeleteTaskMutation$data = {
   readonly deleteTaskByRowId: {
-    readonly clientMutationId: string | null;
     readonly deletedTaskId: string | null;
   } | null;
 };
@@ -32,49 +32,48 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
+    "name": "connections"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
     "name": "input"
   }
 ],
 v1 = [
   {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "input",
-        "variableName": "input"
-      }
-    ],
-    "concreteType": "DeleteTaskPayload",
-    "kind": "LinkedField",
-    "name": "deleteTaskByRowId",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "clientMutationId",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "deletedTaskId",
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
+    "kind": "Variable",
+    "name": "input",
+    "variableName": "input"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "deletedTaskId",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "DeleteTaskMutation",
-    "selections": (v1/*: any*/),
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "DeleteTaskPayload",
+        "kind": "LinkedField",
+        "name": "deleteTaskByRowId",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ],
     "type": "Mutation",
     "abstractKey": null
   },
@@ -83,19 +82,48 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "DeleteTaskMutation",
-    "selections": (v1/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "DeleteTaskPayload",
+        "kind": "LinkedField",
+        "name": "deleteTaskByRowId",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "filters": null,
+            "handle": "deleteEdge",
+            "key": "",
+            "kind": "ScalarHandle",
+            "name": "deletedTaskId",
+            "handleArgs": [
+              {
+                "kind": "Variable",
+                "name": "connections",
+                "variableName": "connections"
+              }
+            ]
+          }
+        ],
+        "storageKey": null
+      }
+    ]
   },
   "params": {
-    "cacheID": "f423aed728d86bdf14da3b71c7d2ba23",
+    "cacheID": "15d2d7b0b7e8d9db00183314d0bafcfe",
     "id": null,
     "metadata": {},
     "name": "DeleteTaskMutation",
     "operationKind": "mutation",
-    "text": "mutation DeleteTaskMutation(\n  $input: DeleteTaskByRowIdInput!\n) {\n  deleteTaskByRowId(input: $input) {\n    clientMutationId\n    deletedTaskId\n  }\n}\n"
+    "text": "mutation DeleteTaskMutation(\n  $input: DeleteTaskByRowIdInput!\n) {\n  deleteTaskByRowId(input: $input) {\n    deletedTaskId\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "fd4b23781aec1b7bb7c283ab719a237c";
+(node as any).hash = "790200e36896c92c5404b8540f0bded9";
 
 export default node;

@@ -4,16 +4,16 @@ import RelayEnvironment from "../../../RelayEnvironment";
 import { DeleteTaskMutation } from "./__generated__/DeleteTaskMutation.graphql";
 
 const mutation = graphql`
-  mutation DeleteTaskMutation($input: DeleteTaskByRowIdInput!) {
+  mutation DeleteTaskMutation($connections: [ID!]!, $input: DeleteTaskByRowIdInput!) {
     deleteTaskByRowId(input: $input) {
-      clientMutationId
-      deletedTaskId
+      # https://mrtnzlml.com/docs/relay/directives#deleteedge
+      deletedTaskId @deleteEdge(connections: $connections)
     }
   }
 `;
 
-const commit = (rowId: number) => {
-  const variables = { input: { rowId } };
+const commit = (rowId: number, connectionId: string) => {
+  const variables = { connections: [connectionId], input: { rowId } };
 
   return commitMutation(RelayEnvironment, {
     mutation,

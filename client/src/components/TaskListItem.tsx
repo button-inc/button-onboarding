@@ -14,6 +14,7 @@ import { useState } from "react";
 
 interface Props {
   task: TaskListItem_task$key;
+  connectionId: string;
 }
 
 export default function TaskListItem(props: Props) {
@@ -40,7 +41,7 @@ export default function TaskListItem(props: Props) {
   };
 
   const handleDeleteTask = () => {
-    DeleteTaskMutation.commit(data.rowId);
+    DeleteTaskMutation.commit(data.rowId, props.connectionId);
   };
 
   return (
