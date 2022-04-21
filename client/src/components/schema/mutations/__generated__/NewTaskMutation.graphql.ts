@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<82c36331c279cd645211937c443e42a9>>
+ * @generated SignedSource<<86bc3d183f112598f7b00efa3b37f959>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,6 +9,7 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type CreateTaskInput = {
   clientMutationId?: string | null;
   task: TaskInput;
@@ -28,8 +29,7 @@ export type NewTaskMutation$data = {
   readonly createTask: {
     readonly taskEdge: {
       readonly node: {
-        readonly id: string;
-        readonly task: string;
+        readonly " $fragmentSpreads": FragmentRefs<"TaskListItem_task">;
       } | null;
     } | null;
   } | null;
@@ -58,43 +58,7 @@ v1 = [
     "name": "input",
     "variableName": "input"
   }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "TasksEdge",
-  "kind": "LinkedField",
-  "name": "taskEdge",
-  "plural": false,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Task",
-      "kind": "LinkedField",
-      "name": "node",
-      "plural": false,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "task",
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    }
-  ],
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -110,7 +74,33 @@ return {
         "name": "createTask",
         "plural": false,
         "selections": [
-          (v2/*: any*/)
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "TasksEdge",
+            "kind": "LinkedField",
+            "name": "taskEdge",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Task",
+                "kind": "LinkedField",
+                "name": "node",
+                "plural": false,
+                "selections": [
+                  {
+                    "args": null,
+                    "kind": "FragmentSpread",
+                    "name": "TaskListItem_task"
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          }
         ],
         "storageKey": null
       }
@@ -132,7 +122,56 @@ return {
         "name": "createTask",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "TasksEdge",
+            "kind": "LinkedField",
+            "name": "taskEdge",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Task",
+                "kind": "LinkedField",
+                "name": "node",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "rowId",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "task",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "completed",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
           {
             "alias": null,
             "args": null,
@@ -155,16 +194,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dfba42aaf927dd11397716b724810751",
+    "cacheID": "6ac8a6dd2fa17d1e135f229842d1310b",
     "id": null,
     "metadata": {},
     "name": "NewTaskMutation",
     "operationKind": "mutation",
-    "text": "mutation NewTaskMutation(\n  $input: CreateTaskInput!\n) {\n  createTask(input: $input) {\n    taskEdge {\n      node {\n        id\n        task\n      }\n    }\n  }\n}\n"
+    "text": "mutation NewTaskMutation(\n  $input: CreateTaskInput!\n) {\n  createTask(input: $input) {\n    taskEdge {\n      node {\n        ...TaskListItem_task\n        id\n      }\n    }\n  }\n}\n\nfragment TaskListItem_task on Task {\n  id\n  rowId\n  task\n  completed\n}\n"
   }
 };
 })();
 
-(node as any).hash = "15e14784c55bf3babb7c6808a391ffe7";
+(node as any).hash = "31a09340c3e90d48f7912723f63b4358";
 
 export default node;

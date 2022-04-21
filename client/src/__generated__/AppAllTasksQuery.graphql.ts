@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<180f13f5e5af26c8c8940fe40f0b8399>>
+ * @generated SignedSource<<bad2262cc8630c66a48d0d9bb09cde44>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -78,6 +78,13 @@ return {
                     "args": null,
                     "kind": "ScalarField",
                     "name": "id",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "rowId",
                     "storageKey": null
                   },
                   {
@@ -166,12 +173,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2ecc292b1640d8247f65409ae33441f2",
+    "cacheID": "17fa98faf2bd8cf81d8c2c70772ae542",
     "id": null,
     "metadata": {},
     "name": "AppAllTasksQuery",
     "operationKind": "query",
-    "text": "query AppAllTasksQuery {\n  ...TaskList_tasks\n}\n\nfragment TaskListItem_task on Task {\n  id\n  task\n  completed\n}\n\nfragment TaskList_tasks on Query {\n  allTasks(first: 200) {\n    edges {\n      node {\n        id\n        ...TaskListItem_task\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query AppAllTasksQuery {\n  ...TaskList_tasks\n}\n\nfragment TaskListItem_task on Task {\n  id\n  rowId\n  task\n  completed\n}\n\nfragment TaskList_tasks on Query {\n  allTasks(first: 200) {\n    edges {\n      node {\n        id\n        ...TaskListItem_task\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })();
