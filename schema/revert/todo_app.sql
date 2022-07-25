@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA todo_app.todo_app;
+DROP SCHEMA todo_app;
 
 COMMIT;
