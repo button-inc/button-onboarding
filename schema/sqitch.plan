@@ -2,3 +2,4 @@
 %project=todo_app
 
 todo_app 2022-07-25T20:21:59Z Mark Isayan <mark.isayan@gmail.com> # Add todo_app schema
+tasks [todo_app] 2022-07-25T21:10:56Z Mark Isayan <mark.isayan@gmail.com> # Add tasks table
