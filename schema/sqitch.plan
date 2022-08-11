@@ -3,3 +3,4 @@
 %uri=https://github.com/sqitchers/sqitch-intro/
 
 appschema 2022-08-11T17:00:39Z Tom <thomas@button.is> # Add schema for all todo objects.
+todos [appschema] 2022-08-11T18:32:37Z Tom <thomas@button.is> # Creates table to track todos
