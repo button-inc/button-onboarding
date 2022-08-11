@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=todo
+%uri=https://github.com/sqitchers/sqitch-intro/
+
+appschema 2022-08-11T17:00:39Z Tom <thomas@button.is> # Add schema for all todo objects.
