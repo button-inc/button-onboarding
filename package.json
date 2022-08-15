@@ -1,0 +1,22 @@
+{
+  "name": "button-onboarding",
+  "version": "1.0.0",
+  "description": "simple todo app to get familiar with the button stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/button-inc/button-onboarding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/button-inc/button-onboarding/issues"
+  },
+  "homepage": "https://github.com/button-inc/button-onboarding#readme",
+  "dependencies": {
+    "postgraphile": "^4.12.11"
+  }
+}
