@@ -22,6 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start2": "npx postgraphile --cors -c postgres:///todo_test -s todo --export-schema-graphql ../schema/schema.graphql --enhance-graphiql --classic-ids --watch",
+    "generate-schema": "npx postgraphile -c postgres:///todo_test -s todo --no-server --export-schema-graphql ../schema/schema.graphql --export-schema-json ../schema/schema.json",
     "start": "yarn run relay && react-scripts start",
     "build": "yarn run relay && react-scripts build",
     "test": "react-scripts test",

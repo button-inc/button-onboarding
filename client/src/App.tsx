@@ -12,9 +12,13 @@ const { Suspense } = React;
 
 // Define a query
 const RepositoryNameQuery = graphql`
-  query AppRepositoryNameQuery {
-    repository(owner: "facebook", name: "relay") {
-      name
+  query AppQuery {
+    allTodos {
+      edges {
+        node {
+          id
+        }
+      }
     }
   }
 `;
@@ -39,7 +43,7 @@ function App(props:any) {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{data.repository.name}</p>
+        <p>{JSON.stringify(data, null, 2)}</p>
       </header>
     </div>
   );
