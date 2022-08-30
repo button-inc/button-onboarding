@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App.css';
 import {graphql} from 'babel-plugin-relay/macro';
-import { useFragment, commitMutation } from 'react-relay/hooks';
-import { Checkbox } from "@button-inc/component-library";
+import { useFragment } from 'react-relay/hooks';
+import Checkbox from "@button-inc/component-library/Checkbox";
 
 
 function TodoListItem(props: any) {
@@ -17,12 +17,8 @@ function TodoListItem(props: any) {
         props.todo,
       );
 
-      const handleClick = (e: { target: { checked: any; }; }) => {
-        const change = e.target.checked;
-      }
-
       return (
-          <Checkbox className={"checkbox"} label={data.task} defaultChecked={data.completed} onClick={handleClick}/>
+          <Checkbox className={"checkbox"} label={data.task} defaultChecked={data.completed}/>
       )
 }
 

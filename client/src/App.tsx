@@ -7,22 +7,14 @@ import {
   usePreloadedQuery,
 } from 'react-relay/hooks';
 import RelayEnvironment from './RelayEnvironment';
+import TodoList from './components/TodoList';
 
 const { Suspense } = React;
 
 // Define a query
 const AllTodosQuery = graphql`
   query AppQuery {
-    allTodos {
-      edges {
-        node {
-          id
-          dateCreated
-          completed
-          task
-        }
-      }
-    }
+    ...TodoList_query
   }
 `;
 
@@ -46,7 +38,9 @@ function App(props:any) {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{JSON.stringify(data, null, 2)}</p>
+        <p>
+          <TodoList query={data} />
+        </p>
       </header>
     </div>
   );
