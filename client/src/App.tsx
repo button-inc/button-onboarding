@@ -11,12 +11,15 @@ import RelayEnvironment from './RelayEnvironment';
 const { Suspense } = React;
 
 // Define a query
-const RepositoryNameQuery = graphql`
+const AllTodosQuery = graphql`
   query AppQuery {
     allTodos {
       edges {
         node {
           id
+          dateCreated
+          completed
+          task
         }
       }
     }
@@ -25,7 +28,7 @@ const RepositoryNameQuery = graphql`
 
 // Immediately load the query as our app starts. For a real app, we'd move this
 // into our routing configuration, preloading data as we transition to new routes.
-const preloadedQuery = loadQuery(RelayEnvironment, RepositoryNameQuery, {
+const preloadedQuery = loadQuery(RelayEnvironment, AllTodosQuery, {
   /* query variables */
 });
 
@@ -38,7 +41,7 @@ const preloadedQuery = loadQuery(RelayEnvironment, RepositoryNameQuery, {
 // - If the query failed, it throws the failure error. For simplicity we aren't
 //   handling the failure case here.
 function App(props:any) {
-  const data: any = usePreloadedQuery(RepositoryNameQuery, props.preloadedQuery);
+  const data: any = usePreloadedQuery(AllTodosQuery, props.preloadedQuery);
 
   return (
     <div className="App">
