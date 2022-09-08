@@ -4,6 +4,7 @@
   "description": "A todo app for Button onboarding",
   "main": "index.js",
   "scripts": {
+    "start-postgraphile": "npx postgraphile --connection 'db://postgres@localhost/todo_test' --schema todo_app --enhance-graphiql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
