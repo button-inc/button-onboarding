@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/button-inc/button-onboarding/issues"
   },
-  "homepage": "https://github.com/button-inc/button-onboarding#readme"
+  "homepage": "https://github.com/button-inc/button-onboarding#readme",
+  "dependencies": {
+    "postgraphile": "^4.12.11"
+  }
 }
