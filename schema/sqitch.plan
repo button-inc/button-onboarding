@@ -3,3 +3,4 @@
 
 appschema 2022-08-30T16:06:26Z josh <josh@Dawnbreaker> # add schema for todo app
 todos [appschema] 2022-09-08T16:31:44Z Josh Gamache <joshua@button.is> # Creates a table to track todos
+seed_todo [todos appschema] 2022-09-08T19:29:07Z Josh Gamache <joshua@button.is> # adds seed data to tables
