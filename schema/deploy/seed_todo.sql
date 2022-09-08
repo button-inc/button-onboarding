@@ -4,11 +4,11 @@
 
 BEGIN;
 
-INSERT INTO todo_app.todos (id, task, completed) 
+INSERT INTO todo_app.todos (task, completed) 
     values 
-        ('1', 'Make a list', true),
-        ('2', 'Check it twice', false),
-        ('3', 'Buy coal', false),
-        ('4', 'Buy carrots', true);
+        ('Make a list', true),
+        ('Check it twice', false),
+        ('Buy coal', false),
+        ('Buy carrots', true);
 
 COMMIT;
