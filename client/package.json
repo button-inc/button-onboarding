@@ -42,12 +42,18 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-relay": "^14.1.0",
+    "graphql": "^16.6.0",
     "relay-compiler": "^14.1.0"
   },
-  "relay" : {
-  	"src": "./src",
-  	"language": "typescript",
-  	"schema": "./data/schema.graphql",
-  	"exclude": ["**/node_modules/**", "**/__mocks__/**", "**/_generated__/**"]
+  "relay": {
+    "src": "./src",
+    "language": "typescript",
+    "schema": "./data/schema.graphql",
+    "exclude": [
+      "**/node_modules/**",
+      "**/__mocks__/**",
+      "**/_generated__/**"
+    ]
   }
 }
