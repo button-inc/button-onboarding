@@ -1,3 +1,5 @@
 %syntax-version=1.0.0
 %project=todo
 
+todo_app 2022-11-04T19:21:28Z Sam Warren <samwarren4@gmail.com> # Create schema for todo project.
+todo_data [todo_app] 2022-11-09T23:08:34Z Sam Warren <samwarren4@gmail.com> # Table to keep track of the todo items
