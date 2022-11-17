@@ -1,0 +1,21 @@
+scalar Date
+
+schema {
+  query: Query
+}
+
+type Query {
+  todos: [Todo!]!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Todo implements Node {
+  id: ID!
+  task: String!
+  completed: Boolean!
+  date_created: Date
+  date_updated: Date
+}
