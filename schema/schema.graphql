@@ -88,7 +88,7 @@ type Todo implements Node {
   task: String!
   completed: Boolean!
   dateCreated: Datetime!
-  dateUpdated: Datetime
+  dateUpdated: Datetime!
 }
 
 """
@@ -204,12 +204,6 @@ type Mutation {
     """
     input: DeleteTodoByRowIdInput!
   ): DeleteTodoPayload
-  insertTodo(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: InsertTodoInput!
-  ): InsertTodoPayload
 }
 
 """The output of our create `Todo` mutation."""
@@ -252,7 +246,7 @@ input TodoInput {
   rowId: Int
   task: String!
   completed: Boolean!
-  dateCreated: Datetime!
+  dateCreated: Datetime
   dateUpdated: Datetime
 }
 
@@ -368,30 +362,4 @@ input DeleteTodoByRowIdInput {
   """
   clientMutationId: String
   rowId: Int!
-}
-
-"""The output of our `insertTodo` mutation."""
-type InsertTodoPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""All input for the `insertTodo` mutation."""
-input InsertTodoInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  task: String
-  completed: Boolean
-  dateCreated: Datetime
 }

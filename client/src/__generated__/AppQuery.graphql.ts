@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<29bf57b12415842869cf63eac592877b>>
+ * @generated SignedSource<<2ac4169656606dc7d391732baaee039d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -52,41 +52,30 @@ const node: ConcreteRequest = {
           {
             "alias": null,
             "args": null,
-            "concreteType": "TodosEdge",
+            "concreteType": "Todo",
             "kind": "LinkedField",
-            "name": "edges",
+            "name": "nodes",
             "plural": true,
             "selections": [
               {
                 "alias": null,
                 "args": null,
-                "concreteType": "Todo",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "id",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "task",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "completed",
-                    "storageKey": null
-                  }
-                ],
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "task",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "completed",
                 "storageKey": null
               }
             ],
@@ -98,12 +87,12 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
-    "cacheID": "8ce8db3bcd11fa0adcfb51de8ff6f19c",
+    "cacheID": "35410f056d63d323bfac33212dddaa88",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos {\n    edges {\n      node {\n        id\n        ...TodoListItem_todo\n      }\n    }\n  }\n}\n"
+    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos {\n    nodes {\n      id\n      ...TodoListItem_todo\n    }\n  }\n}\n"
   }
 };
 

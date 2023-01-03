@@ -1,25 +1,26 @@
-import React from 'react';
-import '../App.css';
-import {graphql} from 'babel-plugin-relay/macro';
-import { useFragment } from 'react-relay/hooks';
-import Checkbox from "@button-inc/component-library/Checkbox";
+import { useFragment } from "react-relay/hooks"
+import graphql from 'babel-plugin-relay/macro';
 
-
-function TodoListItem(props: any) {
-    const data = useFragment(
-        graphql`
-          fragment TodoListItem_todo on Todo {
-            id
-            task
-            completed
-          }
-        `,
-        props.todo,
-      );
-
-      return (
-          <Checkbox className={"checkbox"} label={data.task} defaultChecked={data.completed}/>
-      )
+type Props = {
+    todo: any
 }
 
-export default TodoListItem;
+export default function TodoListItem(props: Props){
+
+    const data = useFragment(
+        graphql`
+            fragment TodoListItem_todo on Todo {
+                id
+                task
+                completed
+            }
+        `,
+        props.todo,
+    );
+
+    return (
+        <li>
+            {data.id} : {data.task} : {data.completed.toString()}
+        </li>
+    )
+}

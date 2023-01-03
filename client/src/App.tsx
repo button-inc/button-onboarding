@@ -10,9 +10,9 @@ import RelayEnvironment from './RelayEnvironment';
 import TodoList from './components/TodoList';
 
 const { Suspense } = React;
-
+ 
 // Define a query
-const AllTodosQuery = graphql`
+const appQuery = graphql`
   query AppQuery {
     ...TodoList_query
   }
@@ -20,9 +20,7 @@ const AllTodosQuery = graphql`
 
 // Immediately load the query as our app starts. For a real app, we'd move this
 // into our routing configuration, preloading data as we transition to new routes.
-const preloadedQuery = loadQuery(RelayEnvironment, AllTodosQuery, {
-  /* query variables */
-});
+const preloadedQuery = loadQuery(RelayEnvironment, appQuery, {/* query params*/});
 
 // Inner component that reads the preloaded query results via `usePreloadedQuery()`.
 // This works as follows:
@@ -32,15 +30,14 @@ const preloadedQuery = loadQuery(RelayEnvironment, AllTodosQuery, {
 //   fallback.
 // - If the query failed, it throws the failure error. For simplicity we aren't
 //   handling the failure case here.
+// TODO: proper types
 function App(props:any) {
-  const data: any = usePreloadedQuery(AllTodosQuery, props.preloadedQuery);
+  const data: any = usePreloadedQuery(appQuery, props.preloadedQuery);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          <TodoList query={data} />
-        </p>
+        <TodoList query={data}/>
       </header>
     </div>
   );
@@ -51,7 +48,8 @@ function App(props:any) {
 // - <RelayEnvironmentProvider> tells child components how to talk to the current
 //   Relay Environment instance
 // - <Suspense> specifies a fallback in case a child suspends.
-function AppRoot(props:any) {
+// TODO: proper types
+function AppRoot() {
   return (
     <RelayEnvironmentProvider environment={RelayEnvironment}>
       <Suspense fallback={'Loading...'}>
