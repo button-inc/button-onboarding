@@ -36,8 +36,7 @@ function App(props:any) {
   const data: any = usePreloadedQuery(appQuery, props.preloadedQuery);
 
   const addTodo = (task: string) => {
-    // TODO: update data with relay -> graphql
-
+    // update data with relay -> graphql
     commitCreateTodoMutation(RelayEnvironment, task);
   }
 

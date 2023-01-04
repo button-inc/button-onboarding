@@ -5,9 +5,10 @@ import graphql from 'babel-plugin-relay/macro';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import React, { useState } from "react";
+import { TodoListItem_todo$data, TodoListItem_todo$key } from './__generated__/TodoListItem_todo.graphql';
 
 type Props = {
-    todo: any
+    todo: TodoListItem_todo$key
 }
 
 const UpdateTodoMutation = graphql`

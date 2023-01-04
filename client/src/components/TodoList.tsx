@@ -5,12 +5,12 @@ import graphql from 'babel-plugin-relay/macro';
 import TodoListItem from './TodoListItem';
 import TextField from '@mui/material/TextField';
 import { FormGroup } from '@mui/material';
+import { TodoList_query$key } from './__generated__/TodoList_query.graphql';
 
 type Props = {
-    query: any,
+    query: TodoList_query$key,
     addTodo: any,
 }
-
 
 
 // TODO: proper types
@@ -44,8 +44,9 @@ export default function TodoList(props: Props){
     function handleInputChange (e: React.ChangeEvent<HTMLInputElement>) {
         setInput(e.currentTarget.value);
     }
-
-    const list = data.allTodos.nodes.map((todo: any) => (
+    
+    // TODO: ensure allTodos exists on data object 
+    const list = data.allTodos!.nodes.map((todo: any) => (
       <TodoListItem
         key={todo.id}
         todo={todo}
