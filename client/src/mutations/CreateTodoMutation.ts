@@ -15,7 +15,9 @@ const mutation = graphql`
     }
 `
 
-export const commitCreateTodoMutation = (environment: Environment, task: String) => {
+export const commitCreateTodoMutation = (
+    environment: Environment, 
+    task: String) => {
     commitMutation(environment, {
         mutation,
         variables: {

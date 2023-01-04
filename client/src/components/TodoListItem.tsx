@@ -5,7 +5,8 @@ import graphql from 'babel-plugin-relay/macro';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import React, { useState } from "react";
-import { TodoListItem_todo$data, TodoListItem_todo$key } from './__generated__/TodoListItem_todo.graphql';
+import { TodoListItem_todo$key } from './__generated__/TodoListItem_todo.graphql';
+import { Button } from '@mui/material';
 
 type Props = {
     todo: TodoListItem_todo$key
@@ -60,13 +61,33 @@ export default function TodoListItem(props: Props){
         });
     }
 
+    const handleDelete = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
+        console.log('delete');
+        console.log(event);
+
+    }
+
     return (
-        <FormControlLabel 
-            control={<Checkbox 
-                checked={checked}
-                onChange={handleChange} 
-                />} 
-            label={data.task} 
-        />
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                    <FormControlLabel 
+                        control={<Checkbox 
+                            checked={checked}
+                            onChange={handleChange} 
+                            />} 
+                        label={data.task} 
+                    />
+                    </td>
+                    <td>
+                        <Button onClick={handleDelete}>
+                            x
+                        </Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     )
 }
