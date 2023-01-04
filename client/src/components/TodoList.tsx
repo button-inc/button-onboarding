@@ -7,7 +7,8 @@ import TextField from '@mui/material/TextField';
 import { FormGroup } from '@mui/material';
 
 type Props = {
-    query: any
+    query: any,
+    addTodo: any,
 }
 
 
@@ -35,6 +36,7 @@ export default function TodoList(props: Props){
         console.log(e.key)
         if(e.key === 'Enter'){
             // props.addTodo(input)
+            props.addTodo(input)
             setInput('')
         }
     }
