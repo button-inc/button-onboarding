@@ -3,6 +3,7 @@ import React from 'react';
 import { useFragment } from "react-relay/hooks"
 import graphql from 'babel-plugin-relay/macro';
 import TodoListItem from './TodoListItem';
+import { FormGroup } from '@mui/material';
 
 
 
@@ -35,8 +36,8 @@ export default function TodoList(props: Props){
         />
     ))
     return (
-        <div>
+        <FormGroup>
             { list }
-        </div>
+        </FormGroup>
     )
 } 
