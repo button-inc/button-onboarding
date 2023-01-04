@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useFragment } from "react-relay/hooks"
 import graphql from 'babel-plugin-relay/macro';
 import TodoListItem from './TodoListItem';
+import TextField from '@mui/material/TextField';
 import { FormGroup } from '@mui/material';
-
-
 
 type Props = {
     query: any
 }
 
 
+
 // TODO: proper types
 export default function TodoList(props: Props){
+
+    const [input, setInput] = useState('');
 
     const data = useFragment(
         graphql`
@@ -29,6 +31,18 @@ export default function TodoList(props: Props){
     props.query
     );
 
+    function handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>) {
+        console.log(e.key)
+        if(e.key === 'Enter'){
+            // props.addTodo(input)
+            setInput('')
+        }
+    }
+
+    function handleInputChange (e: React.ChangeEvent<HTMLInputElement>) {
+        setInput(e.currentTarget.value);
+    }
+
     const list = data.allTodos.nodes.map((todo: any) => (
       <TodoListItem
         key={todo.id}
@@ -36,8 +50,18 @@ export default function TodoList(props: Props){
         />
     ))
     return (
-        <FormGroup>
-            { list }
-        </FormGroup>
+        <>
+            <TextField 
+                id="todo-input" 
+                label="Todo" 
+                variant="outlined" 
+                onChange={handleInputChange} 
+                onKeyDown={handleKeyDown} 
+                value={input}/>
+            <FormGroup>
+                { list }
+            </FormGroup>
+        </>
+
     )
 } 
