@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<44150ad46539cce95ced1e4454393a79>>
+ * @generated SignedSource<<2ce19e97a2c285ee83c6e73c946ffce8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,10 +12,12 @@ import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type TodoList_query$data = {
   readonly allTodos: {
-    readonly nodes: ReadonlyArray<{
-      readonly id: string;
-      readonly " $fragmentSpreads": FragmentRefs<"TodoListItem_todo">;
-    } | null>;
+    readonly edges: ReadonlyArray<{
+      readonly node: {
+        readonly id: string;
+        readonly " $fragmentSpreads": FragmentRefs<"TodoListItem_todo">;
+      } | null;
+    }>;
   } | null;
   readonly " $fragmentType": "TodoList_query";
 };
@@ -27,36 +29,97 @@ export type TodoList_query$key = {
 const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "allTodos"
+        ]
+      }
+    ]
+  },
   "name": "TodoList_query",
   "selections": [
     {
-      "alias": null,
+      "alias": "allTodos",
       "args": null,
       "concreteType": "TodosConnection",
       "kind": "LinkedField",
-      "name": "allTodos",
+      "name": "__connection_allTodos_connection",
       "plural": false,
       "selections": [
         {
           "alias": null,
           "args": null,
-          "concreteType": "Todo",
+          "concreteType": "TodosEdge",
           "kind": "LinkedField",
-          "name": "nodes",
+          "name": "edges",
           "plural": true,
           "selections": [
             {
               "alias": null,
               "args": null,
-              "kind": "ScalarField",
-              "name": "id",
+              "concreteType": "Todo",
+              "kind": "LinkedField",
+              "name": "node",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "TodoListItem_todo"
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             },
             {
+              "alias": null,
               "args": null,
-              "kind": "FragmentSpread",
-              "name": "TodoListItem_todo"
+              "kind": "ScalarField",
+              "name": "cursor",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
             }
           ],
           "storageKey": null
@@ -69,6 +132,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "1084217787dad1be6fded35be24e8cf4";
+(node as any).hash = "e0fc5ef1ab6e3bf053b393dbc14f540c";
 
 export default node;

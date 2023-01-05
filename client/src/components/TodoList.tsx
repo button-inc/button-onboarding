@@ -17,29 +17,31 @@ export default function TodoList(props: Props){
     const data = useFragment(
         graphql`
         fragment TodoList_query on Query {
-            allTodos {
-                nodes {
-                    id
-                  ...TodoListItem_todo
+            allTodos (first: 10) @connection(key: "connection_allTodos"){
+                edges {
+                    node {
+                        id
+                        ...TodoListItem_todo
+                    }
                 }
             }
         }    
     `, 
     props.query
     );
-    
+
+    const listItems = data.allTodos!.edges.map((todo: any) => 
+        <TodoListItem
+            key={todo.node.id}
+            todo={todo.node}
+        />
+    );
+
     return (
         <>
             <CreateTodo />
             <FormGroup>
-                {data.allTodos && 
-                    data.allTodos.nodes.map((todo: any) => (
-                        <TodoListItem
-                          key={todo.id}
-                          todo={todo}
-                          />
-                      ))  
-                }
+                { listItems }
             </FormGroup>
         </>
 

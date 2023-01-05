@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b9963a6c9df0d650b518afca9e204bd8>>
+ * @generated SignedSource<<66a2feb3f11e47841df679ec0680336a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,15 @@ export type AppQuery = {
   variables: AppQuery$variables;
 };
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 10
+  }
+];
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -43,7 +51,7 @@ const node: ConcreteRequest = {
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v0/*: any*/),
         "concreteType": "TodosConnection",
         "kind": "LinkedField",
         "name": "allTodos",
@@ -52,56 +60,116 @@ const node: ConcreteRequest = {
           {
             "alias": null,
             "args": null,
-            "concreteType": "Todo",
+            "concreteType": "TodosEdge",
             "kind": "LinkedField",
-            "name": "nodes",
+            "name": "edges",
             "plural": true,
             "selections": [
               {
                 "alias": null,
                 "args": null,
-                "kind": "ScalarField",
-                "name": "id",
+                "concreteType": "Todo",
+                "kind": "LinkedField",
+                "name": "node",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "rowId",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "task",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "completed",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "__typename",
+                    "storageKey": null
+                  }
+                ],
                 "storageKey": null
               },
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "rowId",
+                "name": "cursor",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "PageInfo",
+            "kind": "LinkedField",
+            "name": "pageInfo",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "endCursor",
                 "storageKey": null
               },
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "task",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "completed",
+                "name": "hasNextPage",
                 "storageKey": null
               }
             ],
             "storageKey": null
           }
         ],
-        "storageKey": null
+        "storageKey": "allTodos(first:10)"
+      },
+      {
+        "alias": null,
+        "args": (v0/*: any*/),
+        "filters": null,
+        "handle": "connection",
+        "key": "connection_allTodos",
+        "kind": "LinkedHandle",
+        "name": "allTodos"
       }
     ]
   },
   "params": {
-    "cacheID": "1feddcb9f563a033162393b31e48205b",
+    "cacheID": "b2f0f77191ab664d7354e0fcea1f2bdd",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  rowId\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos {\n    nodes {\n      id\n      ...TodoListItem_todo\n    }\n  }\n}\n"
+    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  rowId\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos(first: 10) {\n    edges {\n      node {\n        id\n        ...TodoListItem_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
+})();
 
 (node as any).hash = "aeea1657bc510763cd22915beaeb3b1b";
 
