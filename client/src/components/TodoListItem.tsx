@@ -43,7 +43,6 @@ export default function TodoListItem(props: Props){
     }
 
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        console.log('delete');
         commitDeleteTodoMutation(
             RelayEnvironment,
             data.rowId,
