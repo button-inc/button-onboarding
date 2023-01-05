@@ -35,7 +35,6 @@ export default function TodoList(props: Props){
     function handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>) {
         console.log(e.key)
         if(e.key === 'Enter'){
-            // props.addTodo(input)
             props.addTodo(input)
             setInput('')
         }

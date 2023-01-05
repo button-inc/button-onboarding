@@ -1,6 +1,6 @@
 
 import RelayEnvironment from '../RelayEnvironment';
-import { useFragment, commitMutation } from 'react-relay/hooks';
+import { useFragment } from 'react-relay/hooks';
 import graphql from 'babel-plugin-relay/macro';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -8,28 +8,19 @@ import React, { useState } from "react";
 import { TodoListItem_todo$key } from './__generated__/TodoListItem_todo.graphql';
 import { Button } from '@mui/material';
 
+import { commitChangeTodoMutation } from '../mutations/ChangeTodoMutation';
+import { commitDeleteTodoMutation } from '../mutations/DeleteTodoMutation';
+
 type Props = {
     todo: TodoListItem_todo$key
 }
-
-const UpdateTodoMutation = graphql`
-    mutation TodoListItemUpdateMutation (
-    $input: UpdateTodoInput!) {
-        updateTodo(input: $input) {
-            todoEdge {
-            node {
-                completed
-                id
-            }
-        }
-    }
-}`;
 
 export default function TodoListItem(props: Props){
     const data = useFragment(
         graphql`
             fragment TodoListItem_todo on Todo {
                 id
+                rowId
                 task
                 completed
             }
@@ -40,32 +31,24 @@ export default function TodoListItem(props: Props){
     const [checked, setChecked] = useState(data.completed)
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        
-        const isComplete = event.target.checked;
-        setChecked(isComplete);
-
-        commitMutation(RelayEnvironment, {
-        mutation: UpdateTodoMutation,
-        variables: {input: {
-            id: data.id,
-            todoPatch: {
-            completed: isComplete
+        commitChangeTodoMutation(
+            RelayEnvironment, 
+            data.id, 
+            !data.completed, 
+            () => {
+                console.log('change todo mutation successful');
+                setChecked(!data.completed);
             }
-        }},
-        onCompleted: response => {
-            console.log('completed, response is:',response)
-        } /* Mutation completed */,
-        onError: error => {
-            console.log('error is:',error)
-        } /* Mutation errored */,
-        });
+        )
     }
 
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-
         console.log('delete');
-        console.log(event);
-
+        commitDeleteTodoMutation(
+            RelayEnvironment,
+            data.rowId,
+            () => console.log('delete todo mutation successful')
+        )
     }
 
     return (
