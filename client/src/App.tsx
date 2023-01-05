@@ -8,7 +8,7 @@ import {
 } from 'react-relay/hooks';
 import RelayEnvironment from './RelayEnvironment';
 import TodoList from './components/TodoList';
-import { commitCreateTodoMutation } from './mutations/CreateTodoMutation';
+
 
 const { Suspense } = React;
  
@@ -35,15 +35,10 @@ const preloadedQuery = loadQuery(RelayEnvironment, appQuery, {/* query params*/}
 function App(props:any) {
   const data: any = usePreloadedQuery(appQuery, props.preloadedQuery);
 
-  const addTodo = (task: string) => {
-    // update data with relay -> graphql
-    commitCreateTodoMutation(RelayEnvironment, task);
-  }
-
   return (
     <div className="App">
       <header className="App-header">
-        <TodoList query={data} addTodo={addTodo} />
+        <TodoList query={data}/>
       </header>
     </div>
   );
@@ -54,7 +49,6 @@ function App(props:any) {
 // - <RelayEnvironmentProvider> tells child components how to talk to the current
 //   Relay Environment instance
 // - <Suspense> specifies a fallback in case a child suspends.
-// TODO: proper types
 function AppRoot() {
 
   return (
