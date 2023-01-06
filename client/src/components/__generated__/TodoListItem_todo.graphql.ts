@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f27ec2669aec091176c668d16e302e67>>
+ * @generated SignedSource<<b7ffb28b91f9ac5616369bee1d749460>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,8 +11,8 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type TodoListItem_todo$data = {
+  readonly __id: string;
   readonly completed: boolean;
-  readonly id: string;
   readonly rowId: number;
   readonly task: string;
   readonly " $fragmentType": "TodoListItem_todo";
@@ -28,13 +28,6 @@ const node: ReaderFragment = {
   "metadata": null,
   "name": "TodoListItem_todo",
   "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "id",
-      "storageKey": null
-    },
     {
       "alias": null,
       "args": null,
@@ -55,12 +48,24 @@ const node: ReaderFragment = {
       "kind": "ScalarField",
       "name": "completed",
       "storageKey": null
+    },
+    {
+      "kind": "ClientExtension",
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "__id",
+          "storageKey": null
+        }
+      ]
     }
   ],
   "type": "Todo",
   "abstractKey": null
 };
 
-(node as any).hash = "1d398a4c13e984bde66da77b2235baaa";
+(node as any).hash = "d73abb7462eea96324408b5fc19a8709";
 
 export default node;

@@ -18,6 +18,7 @@ export default function TodoList(props: Props){
         graphql`
         fragment TodoList_query on Query {
             allTodos (first: 10) @connection(key: "connection_allTodos"){
+                __id
                 edges {
                     node {
                         id
@@ -30,6 +31,7 @@ export default function TodoList(props: Props){
     props.query
     );
 
+    // TODO: ensure allTodos is not-null 
     const listItems = data.allTodos!.edges.map((todo: any) => 
         <TodoListItem
             key={todo.node.id}

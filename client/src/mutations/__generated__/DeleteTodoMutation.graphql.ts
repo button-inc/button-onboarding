@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<68e5dbb60f1e5a67b47f8c3c6dbae1f2>>
+ * @generated SignedSource<<25edfdbafde84849c1c6055e5fda02e5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -108,13 +108,6 @@ return {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
                 "name": "rowId",
                 "storageKey": null
               },
@@ -131,6 +124,25 @@ return {
                 "kind": "ScalarField",
                 "name": "completed",
                 "storageKey": null
+              },
+              {
+                "kind": "ClientExtension",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "__id",
+                    "storageKey": null
+                  }
+                ]
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -141,12 +153,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b9af195dccf7c5cf76fb906d939c663b",
+    "cacheID": "9af82639b237d1e20e3acd53fad630aa",
     "id": null,
     "metadata": {},
     "name": "DeleteTodoMutation",
     "operationKind": "mutation",
-    "text": "mutation DeleteTodoMutation(\n  $input: DeleteTodoByRowIdInput!\n) {\n  deleteTodoByRowId(input: $input) {\n    todo {\n      ...TodoListItem_todo\n      id\n    }\n  }\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  rowId\n  task\n  completed\n}\n"
+    "text": "mutation DeleteTodoMutation(\n  $input: DeleteTodoByRowIdInput!\n) {\n  deleteTodoByRowId(input: $input) {\n    todo {\n      ...TodoListItem_todo\n      id\n    }\n  }\n}\n\nfragment TodoListItem_todo on Todo {\n  rowId\n  task\n  completed\n}\n"
   }
 };
 })();

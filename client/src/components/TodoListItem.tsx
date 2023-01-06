@@ -20,7 +20,7 @@ export default function TodoListItem({ todo }: Props){
     const data = useFragment(
         graphql`
             fragment TodoListItem_todo on Todo {
-                id
+                __id
                 rowId
                 task
                 completed
@@ -33,7 +33,7 @@ export default function TodoListItem({ todo }: Props){
     const handleCompleteChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         commitChangeTodoMutation(
             RelayEnvironment, 
-            data.id, 
+            data.__id, 
             !data.completed, 
             () => {
                 console.log('change todo mutation successful');

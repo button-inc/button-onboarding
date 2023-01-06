@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<66a2feb3f11e47841df679ec0680336a>>
+ * @generated SignedSource<<69c9d0ae6554ff775ac96dff7eaaf9db>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -26,7 +26,19 @@ var v0 = [
     "name": "first",
     "value": 10
   }
-];
+],
+v1 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
+};
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -101,6 +113,7 @@ return {
                     "name": "completed",
                     "storageKey": null
                   },
+                  (v1/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -145,7 +158,8 @@ return {
               }
             ],
             "storageKey": null
-          }
+          },
+          (v1/*: any*/)
         ],
         "storageKey": "allTodos(first:10)"
       },
@@ -161,12 +175,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b2f0f77191ab664d7354e0fcea1f2bdd",
+    "cacheID": "8e58433e82e57f125ed6a1376c23186c",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  id\n  rowId\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos(first: 10) {\n    edges {\n      node {\n        id\n        ...TodoListItem_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query AppQuery {\n  ...TodoList_query\n}\n\nfragment TodoListItem_todo on Todo {\n  rowId\n  task\n  completed\n}\n\nfragment TodoList_query on Query {\n  allTodos(first: 10) {\n    edges {\n      node {\n        id\n        ...TodoListItem_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })();

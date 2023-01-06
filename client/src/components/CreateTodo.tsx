@@ -14,8 +14,10 @@ export default function CreateTodo(props: any) {
     function handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>) {
         console.log(e.key)
         if(e.key === 'Enter'){
-            addTodo(input)
-            setInput('')
+            if(input){
+                addTodo(input);
+            }
+            setInput('');
         }
     }
 
