@@ -1,9 +1,15 @@
 import { Environment, commitMutation } from "react-relay/hooks"
 import graphql from 'babel-plugin-relay/macro';
 
+const { ConnectionHandler } = require('relay-runtime');
+
 const mutation = graphql`
-    mutation DeleteTodoMutation($input: DeleteTodoByRowIdInput!){
-        deleteTodoByRowId(input: $input) {
+    mutation DeleteTodoMutation(
+        $input: DeleteTodoByRowIdInput!
+        ){
+        deleteTodoByRowId(
+            input: $input
+        ) {
             todo{
                 ...TodoListItem_todo
             }            
@@ -14,6 +20,7 @@ const mutation = graphql`
 export const commitDeleteTodoMutation = (
     environment: Environment, 
     rowId: number,
+    todoId: String,
     callback: Function) => {
     commitMutation(environment, {
         mutation,
@@ -24,7 +31,15 @@ export const commitDeleteTodoMutation = (
         },
     onCompleted: () => {
         callback();
-        },
-        onError: () => {},
+    },
+    onError: () => {},
+    updater(store) {
+        const todos = ConnectionHandler.getConnection(
+            store.getRoot(),
+            'connection_allTodos'
+        );
+        ConnectionHandler.deleteNode(todos, todoId);
+    }
+
     });
 }

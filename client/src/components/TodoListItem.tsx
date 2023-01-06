@@ -45,6 +45,7 @@ export default function TodoListItem({ todo }: Props){
         commitDeleteTodoMutation(
             RelayEnvironment,
             data.rowId,
+            data.__id,
             () => console.log('delete todo mutation successful')
         )
     }
