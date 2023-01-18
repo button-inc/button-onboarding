@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=todo_app
+
+todoAppschema 2023-01-16T16:14:52Z Gabriel Lopes <gabriel@mutante> # Add schema for todo_app project.
+todo_create_table [todoAppschema] 2023-01-16T17:09:20Z Gabriel Lopes <gabriel@mutante> # new table for todoapp
