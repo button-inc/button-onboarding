@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d659e0c9b6ecaf5e1e594f4a197fcd35>>
+ * @generated SignedSource<<25e9c72af591938aac37ee427a6aead9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,10 +14,6 @@ export type TodoList_tasks$data = {
   readonly allTodoCreateTables: {
     readonly nodes: ReadonlyArray<{
       readonly completed: boolean;
-      readonly dateCreated: any;
-      readonly dateUpdated: any;
-      readonly id: string;
-      readonly rowId: number;
       readonly task: string | null;
     } | null>;
   } | null;
@@ -54,35 +50,7 @@ const node: ReaderFragment = {
               "alias": null,
               "args": null,
               "kind": "ScalarField",
-              "name": "id",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
               "name": "completed",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "dateCreated",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "dateUpdated",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "rowId",
               "storageKey": null
             },
             {
@@ -103,6 +71,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "5d3e4e092a63c23a90c26879490d0217";
+(node as any).hash = "69bcd244d90e3739a03c6a5a21be8449";
 
 export default node;

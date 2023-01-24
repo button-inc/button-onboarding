@@ -1,7 +1,7 @@
 async function fetchGraphQL(text, variables) {
-  const GRAPHILESVR = process.env.GRAPHILESVR;
+  // const GRAPHILESVR = process.env.GRAPHILESVR;
 console.log(text, "00000000", variables)
-  const response = await fetch(GRAPHILESVR, {
+  const response = await fetch("http://localhost:5000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

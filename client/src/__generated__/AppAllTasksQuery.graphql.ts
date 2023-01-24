@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<89a4d387407d214715b908d8a2ef1403>>
+ * @generated SignedSource<<8cb3374f1eed07077e275e2d60cbda5c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -61,13 +61,6 @@ const node: ConcreteRequest = {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
                 "name": "completed",
                 "storageKey": null
               },
@@ -75,28 +68,14 @@ const node: ConcreteRequest = {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "dateCreated",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "dateUpdated",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "rowId",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
                 "name": "task",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
                 "storageKey": null
               }
             ],
@@ -108,12 +87,12 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
-    "cacheID": "afd9421dab860548bf7239ade269dc0d",
+    "cacheID": "0267261865f333aab7f5f544ad526412",
     "id": null,
     "metadata": {},
     "name": "AppAllTasksQuery",
     "operationKind": "query",
-    "text": "query AppAllTasksQuery {\n  ...TodoList_tasks\n}\n\nfragment TodoList_tasks on Query {\n  allTodoCreateTables {\n    nodes {\n      id\n      completed\n      dateCreated\n      dateUpdated\n      rowId\n      task\n    }\n  }\n}\n"
+    "text": "query AppAllTasksQuery {\n  ...TodoList_tasks\n}\n\nfragment TodoList_tasks on Query {\n  allTodoCreateTables {\n    nodes {\n      completed\n      task\n      id\n    }\n  }\n}\n"
   }
 };
 

@@ -14,8 +14,9 @@ const TodoList = (props: Props) => {
       fragment TodoList_tasks on Query {
         allTodoCreateTables {
           nodes {
-                  completed
-      task
+            id
+            completed
+            task
           }
         }
       }
