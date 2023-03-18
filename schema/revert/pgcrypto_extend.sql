@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add DDLs here.
+DROP EXTENSION IF EXISTS "pgcrypto";
 
 COMMIT;

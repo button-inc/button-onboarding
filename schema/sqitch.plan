@@ -4,3 +4,4 @@
 
 todo_app 2023-03-18T17:40:21Z PatrickLin <patrick@button.is> # Add schema for todo object.
 pgcrypto_extend 2023-03-18T18:39:00Z PatrickLin <patrick@button.is> # Add crypto extension
+uuid_extend 2023-03-18T19:03:19Z PatrickLin <patrick@button.is> # Add uuid-ossp extension
