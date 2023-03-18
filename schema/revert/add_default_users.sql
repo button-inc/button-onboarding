@@ -2,7 +2,6 @@
 
 BEGIN;
 
--- XXX Add DDLs here.
 DELETE FROM todo_schema.users WHERE email in ('patrick@button.is');
 
 COMMIT;
