@@ -7,3 +7,4 @@ pgcrypto_extend 2023-03-18T18:39:00Z PatrickLin <patrick@button.is> # Add crypto
 uuid_extend 2023-03-18T19:03:19Z PatrickLin <patrick@button.is> # Add uuid-ossp extension
 users [todo_app uuid_extend] 2023-03-18T19:15:27Z PatrickLin <patrick@button.is> # Creates table to track our users.
 insert_user [users todo_app pgcrypto_extend] 2023-03-18T19:40:13Z PatrickLin <patrick@button.is> # Creates a function to insert a user.
+add_default_users [insert_user pgcrypto_extend] 2023-03-18T19:50:51Z PatrickLin <patrick@button.is> # Creates deafult users.
