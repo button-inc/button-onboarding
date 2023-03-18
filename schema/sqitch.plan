@@ -8,3 +8,4 @@ uuid_extend 2023-03-18T19:03:19Z PatrickLin <patrick@button.is> # Add uuid-ossp 
 users [todo_app uuid_extend] 2023-03-18T19:15:27Z PatrickLin <patrick@button.is> # Creates table to track our users.
 insert_user [users todo_app pgcrypto_extend] 2023-03-18T19:40:13Z PatrickLin <patrick@button.is> # Creates a function to insert a user.
 add_default_users [insert_user pgcrypto_extend] 2023-03-18T19:50:51Z PatrickLin <patrick@button.is> # Creates deafult users.
+todos [todo_app uuid_extend users] 2023-03-18T20:35:57Z PatrickLin <patrick@button.is> # Creates table to track our todos.
