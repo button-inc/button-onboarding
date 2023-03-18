@@ -15,7 +15,7 @@ CREATE OR REPLACE FUNCTION todo_schema.insert_todo(
 DECLARE
   v_task_uid UUID;
 BEGIN
-  INSERT INTO todos (user_uid, task, completed, date_created, date_updated)
+  INSERT INTO todo_schema.todos (user_uid, task, completed, date_created, date_updated)
   VALUES (p_user_uid, p_task, p_completed, p_date_created, p_date_updated)
   RETURNING task_uid INTO v_task_uid;
   

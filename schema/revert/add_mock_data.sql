@@ -1,4 +1,4 @@
--- Revert todo_proj:add_default_users from pg
+-- Revert todo_proj:add_mock_data from pg
 
 BEGIN;
 
