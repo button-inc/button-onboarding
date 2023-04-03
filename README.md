@@ -82,3 +82,5 @@ Make a simple [mutation-based](https://relay.dev/docs/en/mutations) component fo
 ## Step 6: Write unit tests
 
 Use [Jest](https://jestjs.io/) to test client side components.
+
+Hi there!
